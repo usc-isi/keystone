@@ -1,0 +1,94 @@
+#!/bin/bash
+#
+# keystone	OpenStack Nova Compute Worker
+#
+# chkconfig: 2345 96 04
+# description: Compute workers manage computing instances on host  \
+#               machines. Through the API, commands are dispatched \
+#               to compute workers to:                             \
+#               * Run instances                                    \
+#               * Terminate instances                              \
+#               * Reboot instances                                 \
+#               * Attach volumes                                   \
+#               * Detach volumes                                   \
+#               * Get console output
+#
+# config: /etc/keystone/keystone.conf
+# pidfile: /var/run/keystone/keystone.pid
+
+### BEGIN INIT INFO
+# Provides: openstack-keystone
+# Required-Start: $local_fs $network $syslog
+# Required-Stop: $local_fs $syslog
+# Should-Start: $syslog
+# Should-Stop: $network $syslog
+# Default-Start: 3 4 5
+# Default-Stop: 0 2 1 6
+# Short-Description: OpenStack Nova Compute Worker
+# Description: TODO!
+### END INIT INFO
+
+# Source function library.
+. /etc/init.d/functions
+
+prog="OpenStack Keystone"
+suffix="compute"
+flgfile=/etc/keystone/keystone.conf
+logdir=/var/log/keystone
+pidfile=/var/run/keystone/keystone.pid
+lockfile=/var/lock/subsys/openstack-keystone
+binfile=/usr/bin/keystone-all
+daemonuser=keystone
+
+start() {
+    echo -n "Starting $prog: "
+    start-stop-daemon --start --oknodo --background --chuid $daemonuser --make-pidfile --pidfile $pidfile --startas $binfile --
+    retval=$?
+    [ $retval -eq 0 ] && success || failure
+    echo
+    [ $retval -eq 0 ] && touch $lockfile
+    return $retval
+}
+
+stop() {
+    echo -n "Stopping $prog: "
+    start-stop-daemon --stop --oknodo --pidfile $pidfile
+    retval=$?
+    [ $retval -eq 0 ] && success || failure
+    echo
+    [ $retval -eq 0 ] && rm -f $lockfile $pidfile
+    return $?
+}
+
+rh_status() {
+    status -p $pidfile $binfile
+}
+
+restart() {
+    stop
+    start
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        rh_status
+        ;;
+    restart)
+        restart
+        ;;
+    condrestart|try-restart)
+        [ -f $lockfile ] && restart
+        ;;
+    *)
+        echo "Usage: service $(basename $0) {start|stop|status|restart|condrestart|try-restart}"
+        exit 1
+        ;;
+esac
+
+exit $?
