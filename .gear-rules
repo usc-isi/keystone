@@ -1,2 +1,2 @@
-copy: etc/rc.d/init.d/*
+copy: ./*.init
 tar.gz: . name=@name@-@version@
