@@ -1,2 +1,4 @@
+#copy: redhat/*
+#copy: patches/* 
 copy: ./*.init
 tar.gz: . name=@name@-@version@
