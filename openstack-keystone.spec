@@ -12,7 +12,7 @@ Name:           %{short_name}
 Epoch:          1
 Release:	essex
 #Release:	b3119
-Version:        2012.6
+Version:        2012.1.1
 Url:            http://www.openstack.org
 Summary:        Python bindings to the OS API
 License:        Apache 2.0
