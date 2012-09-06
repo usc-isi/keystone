@@ -8,7 +8,7 @@
 %define mod_name keystone
 %define py_puresitedir  %{python_sitelib}
 
-Name:           openstack-%{prj}
+Name:           %{short_name}
 Epoch:          1
 Release:	essex
 #Release:	b3119
@@ -151,7 +151,8 @@ fi
 
 %changelog
 * Mon Jun 25 2012 Karandeep Singh <karan AT isi.edu>
-- Got master branch with latest changes on 6/25/12
+- Got essex code with bug fixes from:
+- https://launchpad.net/keystone/essex/2012.1.1/+download/keystone-2012.1.1.tar.gz
 * Fri Jun 15 2012 Karandeep Singh <karan AT isi.edu>
 - Updated for ISI essex release, dropped os_release from package names
 * Mon Mar  26 2012 Pavel Shkitin <pshkitin@griddynamics.com> - 2012.1
