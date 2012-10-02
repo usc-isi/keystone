@@ -54,19 +54,32 @@ Documentation for %{name}.
 Summary:        Keystone Python libraries
 Group:          Development/Languages/Python
 
-Requires:       python-eventlet 
-Requires:       python-lxml 
-Requires:       python-paste 
-Requires:       python-sqlalchemy 
-Requires:       python-routes 
+#Requires:       python-eventlet 
+#Requires:       python-lxml 
+#Requires:       python-paste 
+#Requires:       python-sqlalchemy 
+#Requires:       python-routes 
 Requires:       python-httplib2 
 Requires:       python-paste-deploy >= 1.5.0
 Requires:       start-stop-daemon 
-Requires:       python-webob 
+#Requires:       python-webob 
 Requires:       python-setuptools 
-Requires:       python-passlib
-Requires:       python-sqlalchemy-migrate
+#Requires:       python-passlib
 Requires:       python-keystone
+
+#MK: needs to be checked
+Requires:       python-iso8601 >= 0.1.4
+Requires:       python-lxml >= 2.2.3
+Requires:       python-passlib >= 1.5.3
+Requires:       python-sqlalchemy-migrate >= 0.7.1
+Requires:       python-sqlalchemy >= 0.7.4
+Requires:       python-routes >= 1.12.3
+Requires:       python-paste >= 1.7.4
+Requires:       python-greenlet >= 0.3.1
+Requires:       python-eventlet >= 0.9.17.dev
+Requires:       python-webob >= 1.0.8 
+Requires:       python-pam >= 0.1.4 
+Requires:       python-tempita >= 0.4 
 
 %description -n  python-keystone
 This package contains the %{name} Python library.
