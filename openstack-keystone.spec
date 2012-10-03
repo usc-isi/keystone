@@ -80,7 +80,7 @@ Requires:       python-greenlet >= 0.3.1
 #Requires:       python-eventlet >= 0.9.17.dev
 Requires:       python-webob >= 1.0.8 
 #Requires:       python-pam >= 0.1.4 
-Requires:       python-pam 
+#Requires:       python-pam 
 Requires:       python-tempita >= 0.4 
 
 %description -n  python-keystone
