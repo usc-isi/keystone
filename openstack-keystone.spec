@@ -10,7 +10,9 @@
 
 Name:           %{short_name}
 Epoch:          1
-Release:	essex
+#MK
+#Release:	essex
+Release: 	folsom	
 #Release:	b3119
 Version:        2012.1.1
 Url:            http://www.openstack.org
