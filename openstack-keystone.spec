@@ -73,8 +73,8 @@ Requires:       python-keystone
 Requires:       python-iso8601 >= 0.1.4
 #Requires:       python-lxml >= 2.2.3
 Requires:       python-passlib >= 1.5.3
-#Requires:       python-sqlalchemy-migrate >= 0.7.1
-Requires:       python-sqlalchemy-migrate
+Requires:       python-sqlalchemy-migrate >= 0.7.1
+#Requires:       python-sqlalchemy-migrate
 Requires:       python-sqlalchemy >= 0.7.4
 Requires:       python-routes >= 1.12.3
 Requires:       python-paste >= 1.7.4
